@@ -10,6 +10,8 @@ class Livro(models.Model):
     sinopse = models.TextField(blank=False, null=False)
     autor = models.ForeignKey(
         "Autor", on_delete=models.CASCADE, related_name='autor')
+    categorias = models.ManyToManyField(
+        'Categoria', related_name='categorias',)
 
     def __str__(self):
         return self.titulo
